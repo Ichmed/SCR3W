@@ -37,7 +37,7 @@ public class Vector implements Comparable<Vector>
 	 */
 	public int compareTo(float f)
 	{
-		float l = (x * x + y * y) - f;
+		float l = (x * x + y * y) - f*f;
 		return l < 0 ? -1 : l > 0 ? 1 : 0;
 	}
 
@@ -49,7 +49,8 @@ public class Vector implements Comparable<Vector>
 	 */
 	public int compareTo(Vector v)
 	{
-		return compareTo(v.x * v.x + v.y * v.y);
+		float l = (x * x + y * y) - (v.x * v.x + v.y * v.y);
+		return l < 0 ? -1 : l > 0 ? 1 : 0;
 	}
 	
 	/*
