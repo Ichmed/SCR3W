@@ -27,9 +27,9 @@ public class Animation implements IRendered
 	}
 
 	@Override
-	public void render(float x, float y)
+	public void render()
 	{
-		frames[frameCounter].render(x, y);
+		frames[frameCounter].render();
 		if(frameCounter < maxFrames) frameCounter++;
 		else if(shouldLoop) frameCounter = 0;
 	}
@@ -38,6 +38,13 @@ public class Animation implements IRendered
 	public boolean shouldCleanUp()
 	{
 		return frameCounter > this.maxFrames; 
+	}
+
+	@Override
+	public void setPos(float x, float y)
+	{
+		for(IRendered r : frames)
+			r.setPos(x, y);
 	}
 
 }
